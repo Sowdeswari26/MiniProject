@@ -1,0 +1,51 @@
+{
+  "version": 1,
+  "author": "Uri Shaked",
+  "editor": "wokwi",
+  "parts": [
+    {
+      "type": "board-esp32-s3-box-3",
+      "id": "esp32",
+      "top": -24.91,
+      "left": -388.54,
+      "attrs": { "psramSize": "16", "flashSize": "16" }
+    },
+    { "type": "wokwi-membrane-keypad", "id": "keypad1", "top": -21.2, "left": 53.6, "attrs": {} },
+    { "type": "wokwi-lcd1602", "id": "lcd1", "top": 493.03, "left": -137.6, "attrs": {} },
+    { "type": "wokwi-servo", "id": "servo1", "top": 257.2, "left": -28.8, "attrs": {} },
+    {
+      "type": "wokwi-buzzer",
+      "id": "bz1",
+      "top": 117.6,
+      "left": -17.4,
+      "attrs": { "volume": "0.1" }
+    }
+  ],
+  "connections": [
+    [ "$serialMonitor:RX", "esp32:G14", "", [] ],
+    [ "$serialMonitor:TX", "esp32:G11", "", [] ],
+    [ "esp32:G13", "keypad1:R1", "green", [ "v76.8", "h9.6" ] ],
+    [ "esp32:G12", "keypad1:R2", "green", [ "v57.6", "h480" ] ],
+    [ "esp32:G14", "keypad1:R3", "green", [ "v48", "h499.2", "v-9.6" ] ],
+    [ "keypad1:R4", "esp32:G44", "green", [ "v38.4", "h-489.8" ] ],
+    [ "keypad1:C1", "esp32:G10", "green", [ "v115.2", "h-489.7", "v-48", "h-76.8", "v-57.6" ] ],
+    [ "keypad1:C2", "esp32:G11", "green", [ "v134.4", "h-518.4" ] ],
+    [ "keypad1:C3", "esp32:G43", "green", [ "v153.6", "h-508.95" ] ],
+    [ "keypad1:C4", "esp32:G9", "green", [ "v163.2", "h-547.5" ] ],
+    [ "lcd1:RS", "esp32:G19", "green", [ "v38.4", "h-172.5", "v-336" ] ],
+    [ "lcd1:D4", "esp32:G38", "green", [ "v57.6", "h-220.8" ] ],
+    [ "lcd1:D5", "esp32:G42", "green", [ "v19.2", "h-230.3" ] ],
+    [ "lcd1:D6", "esp32:G40", "green", [ "v48", "h-230.2" ] ],
+    [ "lcd1:D7", "esp32:G41", "green", [ "v28.8", "h-239.7" ] ],
+    [ "lcd1:VSS", "esp32:GND.3", "green", [ "v67.2", "h-76.8" ] ],
+    [ "lcd1:VDD", "esp32:3V3.4", "green", [ "v9.6", "h-115.1" ] ],
+    [ "lcd1:V0", "esp32:3V3.3", "green", [ "v86.4", "h-115.5" ] ],
+    [ "servo1:GND", "esp32:GND.2", "black", [ "h0" ] ],
+    [ "servo1:V+", "esp32:3V3.1", "green", [ "h0" ] ],
+    [ "servo1:PWM", "esp32:G39", "green", [ "h0" ] ],
+    [ "lcd1:E", "esp32:G21", "green", [ "v76.8", "h-211.2", "v-192", "h-9.6", "v-182.4" ] ],
+    [ "bz1:1", "esp32:GND.1", "green", [ "v86.4", "h-307.2" ] ],
+    [ "esp32:G40", "bz1:2", "green", [ "v-67.2", "h1.03" ] ]
+  ],
+  "dependencies": {}
+}
