@@ -1,3 +1,4 @@
+#include <Arduino.h>
 // Pin Definitions
 const int mainRed = 2;
 const int mainYellow = 4;
